@@ -7,9 +7,6 @@ SET
 WHERE
     GPA IN  ('Unknown','Personal');
 
-
-
-#update text data to delete text
 UPDATE food 
 SET 
     GPA = '3.79'
@@ -23,3 +20,6 @@ WHERE
     GPA like '%Unknown&' or GPA like '%Personal%';
  */
  
+ #to make  data  consistent
+ UPDATE food SET 
+comfort_food = LOWER(comfort_food);
