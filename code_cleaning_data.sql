@@ -23,3 +23,16 @@ WHERE
  #to make  data  consistent
  UPDATE food SET 
 comfort_food = LOWER(comfort_food);
+
+#update cleaning comfort_food
+UPDATE food SET 
+comfort_food = REPLACE (comfort_food,", and",",")
+WHERE comfort_food LIKE '%, and%';
+
+UPDATE food SET 
+comfort_food = REPLACE (comfort_food,". ",",")
+WHERE comfort_food LIKE '%. %';
+
+UPDATE food SET 
+comfort_food = REPLACE (comfort_food,"-"," ")
+WHERE comfort_food LIKE '%-%';
