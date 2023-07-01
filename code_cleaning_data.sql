@@ -1,5 +1,8 @@
 select * from food;
 
+select right(comfort_food,5) from food;
+
+
 #update text data to "nan"
 UPDATE food 
 SET 
@@ -36,3 +39,6 @@ WHERE comfort_food LIKE '%. %';
 UPDATE food SET 
 comfort_food = REPLACE (comfort_food,"-"," ")
 WHERE comfort_food LIKE '%-%';
+
+update food set 
+comfort_food = trim(comfort_food);
