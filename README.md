@@ -18,4 +18,6 @@ SET
     GPA = 'nan'
 WHERE
     GPA IN  ('Unknown','Personal');
-```  
+```
+<br/>
+In the GPA column there is inconsistent data namely "Personal" and "Unknown". Converting text data to average values will cause corrupted data, in this case i change "Personal" and "Unknown" to "nan" due to information that the GPA value cannot be identified or does not exist. 
