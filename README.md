@@ -32,10 +32,20 @@ this code make data in column comfort food become lowercase
 UPDATE food SET 
 comfort_food = LOWER(comfort_food);
 ```
-
+<br/>
+The code aims to modify a given text or string by searching for instances where the phrase ", and" appears and replacing it with a single comma ","
+<br/>
 
 ```
 UPDATE food SET 
 comfort_food = REPLACE (comfort_food,", and",",")
 WHERE comfort_food LIKE '%, and%';
 ```
+
+<!--- ![comfort_food](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fe0ac90f-b122-4444-aebf-7f07481f52d3) 
+iki upload gambar e, copy link e tok ae bos --->
+<br/>
+
+<p align="center" width="90%">
+    <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fe0ac90f-b122-4444-aebf-7f07481f52d3"> 
+</p>
