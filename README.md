@@ -45,7 +45,33 @@ WHERE comfort_food LIKE '%, and%';
 <!--- ![comfort_food](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fe0ac90f-b122-4444-aebf-7f07481f52d3) 
 iki upload gambar e, copy link e tok ae bos --->
 <br/>
-
 <p align="center" width="90%">
     <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fe0ac90f-b122-4444-aebf-7f07481f52d3"> 
 </p>
+<br/>
+The code aims replacing string ". " with comma and "-" with space " "
+<br/>
+
+```
+UPDATE food SET 
+comfort_food = REPLACE (comfort_food,". ",",")
+WHERE comfort_food LIKE '%. %';
+```
+<br/>
+
+```
+UPDATE food SET 
+comfort_food = REPLACE (comfort_food,"-"," ")
+WHERE comfort_food LIKE '%-%';
+```
+
+<!--- ![comfort_food2](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/ac64f04d-7944-45e2-a28c-39bd9bc849cf)
+--->
+<br/>
+
+<br/>
+
+<p align="center" width="80%">
+    <img width="80%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/ac64f04d-7944-45e2-a28c-39bd9bc849cf"> 
+</p>
+<br/>
