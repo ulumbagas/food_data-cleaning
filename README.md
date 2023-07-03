@@ -98,7 +98,7 @@ WHERE
     <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/15303e02-2499-46f0-95f5-4cd1fc7c78c8"> 
 </p>
 <br/>
-The next step is to split the data. A simpler data structure makes it easier to manage and process the data in the subsequent stages of cleaning.<br/>
+In this code, we will utilize a function to split the data based on comma as the separator, enabling us to efficiently manage and process the data in the subsequent stages of the data cleansing process.<br/>
 
 ```
 select 
@@ -111,3 +111,8 @@ CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 5 THE
 from food;
 ```
 <br/>
+<!--- ![comfort_food5](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/8b55a11f-ffd6-4dcf-af83-6b5355163e66)--->
+<p align="center" width="90%">
+    <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/8b55a11f-ffd6-4dcf-af83-6b5355163e66"> 
+</p>
+
