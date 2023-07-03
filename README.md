@@ -27,7 +27,7 @@ In the GPA column there is inconsistent data namely "Personal" and "Unknown". Co
 + **Make  data  consistent.** <br/>
 	If the data you are examining has inconsistent writing variations, such as random usage of uppercase and lowercase letters, correcting the data's writing can help improve data consistency. This will facilitate the data analysis process and minimize errors caused by inconsistent data recognition. <br/>
 
-this code make data in column comfort food become lowercase
+this code make data in column comfort_food become lowercase
 ```
 UPDATE food SET 
 comfort_food = LOWER(comfort_food);
@@ -74,3 +74,11 @@ WHERE comfort_food LIKE '%-%';
     <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/ac64f04d-7944-45e2-a28c-39bd9bc849cf"> 
 </p>
 <br/>
+The TRIM() function removes the space character OR other specified characters from the start or end of a string.
+<br/>
+
+```
+UPDATE food 
+SET 
+    comfort_food = TRIM(comfort_food);
+```
