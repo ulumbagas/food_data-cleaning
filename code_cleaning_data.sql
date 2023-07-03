@@ -1,8 +1,4 @@
-select GPA from food
-where GPA = 'Personal ';
-
-select comfort_food, right(comfort_food,1) from food
-where right(comfort_food,1) = ',';
+select comfort_food from food;
 
 
 #update text data to "nan"
@@ -46,18 +42,22 @@ UPDATE food SET
 comfort_food = REPLACE (comfort_food,"/",",")
 WHERE comfort_food LIKE '%/%';
 
+UPDATE food SET 
+comfort_food = REPLACE (comfort_food,", &",",")
+WHERE comfort_food LIKE '%, &%';
 
 update food set 
 comfort_food = trim(comfort_food);
 
 #Delete dot(.) and comma(,) in last string
 
-select comfort_food as 'Before',comfort_food_copy1 as 'After' from food
-WHERE right(comfort_food_copy1,1) in (',','.');
+select comfort_food as 'Before',comfort_food_1 as 'After' from food
+WHERE right(comfort_food_1,1) in (',','.');
 
-
-update food set 
-comfort_food_copy1 = comfort_food;
+/*gawe sc comfort_food sek lur ojok lali
+#update food set 
+#comfort_food_1 = comfort_food;
+*/
 
 UPDATE food
 SET comfort_food = CONCAT(SUBSTRING(comfort_food, 1, LENGTH(comfort_food) - 1), '')
@@ -77,10 +77,23 @@ CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 4 THE
 CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 5 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 6), ',', -1)) ELSE null END comfort_food6
 from food;
 
-select 
+#columns 2
+select
 distinct(CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 1 THEN SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 2), ',', -1) ELSE null END) AS comfort_food2
 from food
 order by comfort_food2 asc;
+
+#columns 3
+select
+distinct(CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 2 THEN SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 3), ',', -1) ELSE null END) AS comfort_food3
+from food
+order by comfort_food3 asc;
+
+#columns 6
+select
+distinct(CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 5 THEN SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 6), ',', -1) ELSE null END) AS comfort_food5
+from food
+order by comfort_food5 asc;
 
 select 
 distinct(SUBSTRING_INDEX(comfort_food,',',1)) as comfort_food
@@ -111,10 +124,20 @@ WHERE comfort_food LIKE '%macaroni and cheese%';
 #burger
 UPDATE food
 SET comfort_food = REPLACE(comfort_food, 'burgers', 'burger')
-WHERE comfort_food LIKE '%burger%';
+WHERE comfort_food LIKE '%burgers%';
 
 #chinese
 UPDATE food
 SET comfort_food = REPLACE(comfort_food, 'chinese food', 'chinese')
-WHERE comfort_food LIKE '%chinese%';
+WHERE comfort_food LIKE '%chinese food%';
  
+#chocolate
+update food set
+comfort_food = replace(comfort_food,'chocolate bar','chocolate')
+where comfort_food like '%chocolate bar%';
+
+update food set
+comfort_food = replace(comfort_food,'chocolates','chocolate')
+where comfort_food like '%chocolates%';
+
+
