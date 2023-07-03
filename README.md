@@ -82,3 +82,19 @@ UPDATE food
 SET 
     comfort_food = TRIM(comfort_food);
 ```
+<br/>
+
+Delete dot(.) and comma(,) in last string <br/>
+```
+SELECT 
+    comfort_food AS 'Before', comfort_food_1 AS 'After'
+FROM
+    food
+WHERE
+    RIGHT(comfort_food_1, 1) IN (',' , '.');
+```
+<br/>
+<!--- ![comfort_food3](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/15303e02-2499-46f0-95f5-4cd1fc7c78c8) --->
+<p align="center" width="70%">
+    <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/15303e02-2499-46f0-95f5-4cd1fc7c78c8"> 
+</p>
