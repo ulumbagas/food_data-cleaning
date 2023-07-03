@@ -86,15 +86,28 @@ SET
 
 Delete dot(.) and comma(,) in last string <br/>
 ```
-SELECT 
-    comfort_food AS 'Before', comfort_food_1 AS 'After'
-FROM
-    food
+UPDATE food 
+SET 
+    comfort_food = CONCAT(SUBSTRING(comfort_food,1,LENGTH(comfort_food) - 1),'')
 WHERE
-    RIGHT(comfort_food_1, 1) IN (',' , '.');
+    RIGHT(comfort_food, 1) IN (',' , '.','');
 ```
 <br/>
 <!--- ![comfort_food3](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/15303e02-2499-46f0-95f5-4cd1fc7c78c8) --->
 <p align="center" width="70%">
     <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/15303e02-2499-46f0-95f5-4cd1fc7c78c8"> 
 </p>
+<br/>
+The next step is to split the data. A simpler data structure makes it easier to manage and process the data in the subsequent stages of cleaning.<br/>
+
+```
+select 
+SUBSTRING_INDEX(comfort_food,',',1) as comfort_food,
+CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 1 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 2), ',', -1)) ELSE null END comfort_food2,
+CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 2 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 3), ',', -1)) ELSE null END comfort_food3,
+CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 3 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 4), ',', -1)) ELSE null END comfort_food4,
+CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 4 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 5), ',', -1)) ELSE null END comfort_food5,
+CASE WHEN LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ',', '')) >= 5 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food, ',', 6), ',', -1)) ELSE null END comfort_food6
+from food;
+```
+<br/>
