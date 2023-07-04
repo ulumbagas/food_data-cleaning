@@ -159,13 +159,21 @@ SET
 WHERE
     comfort_food LIKE '%macaroni and cheese%';
 
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'burgers', 'burger')
-WHERE comfort_food LIKE '%burgers%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'burgers',
+        'burger')
+WHERE
+    comfort_food LIKE '%burgers%';
 
-
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'chinese food', 'chinese')
-WHERE comfort_food LIKE '%chinese food%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'chinese food',
+        'chinese')
+WHERE
+    comfort_food LIKE '%chinese food%';
+ 
 ```
 <br/>
