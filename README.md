@@ -1,8 +1,9 @@
-### About Dataset
+<h2 align="center">About Dataset</h2>
 
 **This dataset includes information on food choices, nutrition, preferences, childhood favorites, and other information from college students. There are 126 responses from students. Data is raw and uncleaned.**
 
-### About Repository
+<h2 align="center">About Repository</h2>
+
 **Objective this repository is to clean dataset so that it can perform further data analysis**
 
 
