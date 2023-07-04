@@ -98,7 +98,7 @@ WHERE
     <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/15303e02-2499-46f0-95f5-4cd1fc7c78c8"> 
 </p>
 <br/>
-In this code, we will utilize a function to split the data based on comma as the separator, enabling us to efficiently manage and process the data in the subsequent stages of the data cleansing process.<br/>
+In this code, we use some functions like substring_index and case to split the data based on comma as the separator, enabling us to efficiently manage and process the data in the subsequent stages of the data cleansing process.<br/>
 
 ```
 select 
@@ -115,4 +115,47 @@ from food;
 <p align="center" width="90%">
     <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/8b55a11f-ffd6-4dcf-af83-6b5355163e66"> 
 </p>
+<br/>
+After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese','mac & cheese','mac n cheese' I will fix to 'macaroni & cheese' to make it more consistent. <br/>
 
+```
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac and cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac and cheese%';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac & cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac & cheese%';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac in cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac in cheese%';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac n cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac n cheese%';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'macaroni and cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%macaroni and cheese%';
+```
