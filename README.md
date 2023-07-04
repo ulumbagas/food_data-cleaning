@@ -116,7 +116,7 @@ from food;
     <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/8b55a11f-ffd6-4dcf-af83-6b5355163e66"> 
 </p>
 <br/>
-After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese','mac & cheese','mac n cheese' I will fix to 'macaroni & cheese' to make it more consistent. <br/>
+After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese' to 'macaroni & cheese', 'burgers' to 'burger', 'chinese food' to 'chinese' we will fix to make it more consistent. <br/>
 
 ```
 UPDATE food 
@@ -158,4 +158,14 @@ SET
         'macaroni & cheese')
 WHERE
     comfort_food LIKE '%macaroni and cheese%';
+
+UPDATE food
+SET comfort_food = REPLACE(comfort_food, 'burgers', 'burger')
+WHERE comfort_food LIKE '%burgers%';
+
+
+UPDATE food
+SET comfort_food = REPLACE(comfort_food, 'chinese food', 'chinese')
+WHERE comfort_food LIKE '%chinese food%';
 ```
+<br/>
