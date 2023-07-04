@@ -46,22 +46,29 @@ UPDATE food SET
 comfort_food = REPLACE (comfort_food,", &",",")
 WHERE comfort_food LIKE '%, &%';
 
-update food set 
-comfort_food = trim(comfort_food);
+UPDATE food 
+SET 
+    comfort_food = TRIM(comfort_food);
 
 #Delete dot(.) and comma(,) in last string
 
-select comfort_food as 'Before',comfort_food_1 as 'After' from food
-WHERE right(comfort_food_1,1) in (',','.');
+SELECT 
+    comfort_food AS 'Before', comfort_food_1 AS 'After'
+FROM
+    food
+WHERE
+    RIGHT(comfort_food_1, 1) IN (',' , '.');
 
 /*gawe sc comfort_food sek lur ojok lali
 #update food set 
 #comfort_food_1 = comfort_food;
 */
 
-UPDATE food
-SET comfort_food = CONCAT(SUBSTRING(comfort_food, 1, LENGTH(comfort_food) - 1), '')
-WHERE right(comfort_food,1) in (',','.','\n');
+UPDATE food 
+SET 
+    comfort_food = CONCAT(SUBSTRING(comfort_food,1,LENGTH(comfort_food) - 1),'')
+WHERE
+    RIGHT(comfort_food, 1) IN (',' , '.','');
 
 ##split
 
@@ -101,43 +108,82 @@ from food
 order by comfort_food asc;
 
 #macaroni & cheese ---> convert all terms into a consistent form
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'mac and cheese', 'macaroni & cheese')
-WHERE comfort_food LIKE '%mac and cheese%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac and cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac and cheese%';
 
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'mac & cheese', 'macaroni & cheese')
-WHERE comfort_food LIKE '%mac & cheese%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac & cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac & cheese%';
 
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'mac in cheese', 'macaroni & cheese')
-WHERE comfort_food LIKE '%mac in cheese%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac in cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac in cheese%';
 
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'mac n cheese', 'macaroni & cheese')
-WHERE comfort_food LIKE '%mac n cheese%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'mac n cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%mac n cheese%';
 
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'macaroni and cheese', 'macaroni & cheese')
-WHERE comfort_food LIKE '%macaroni and cheese%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'macaroni and cheese',
+        'macaroni & cheese')
+WHERE
+    comfort_food LIKE '%macaroni and cheese%';
 
-#burger
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'burgers', 'burger')
-WHERE comfort_food LIKE '%burgers%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'burgers',
+        'burger')
+WHERE
+    comfort_food LIKE '%burgers%';
 
-#chinese
-UPDATE food
-SET comfort_food = REPLACE(comfort_food, 'chinese food', 'chinese')
-WHERE comfort_food LIKE '%chinese food%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'chinese food',
+        'chinese')
+WHERE
+    comfort_food LIKE '%chinese food%';
  
-#chocolate
-update food set
-comfort_food = replace(comfort_food,'chocolate bar','chocolate')
-where comfort_food like '%chocolate bar%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'chocolate bar',
+        'chocolate')
+WHERE
+    comfort_food LIKE '%chocolate bar%';
 
-update food set
-comfort_food = replace(comfort_food,'chocolates','chocolate')
-where comfort_food like '%chocolates%';
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'chocolates',
+        'chocolate')
+WHERE
+    comfort_food LIKE '%chocolates%';
 
 
+SELECT 
+    LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ' ', '')) AS 'spasi',
+    comfort_food
+FROM
+    food
+    where comfort_food NOT like '%,%' and LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ' ', '')) <> 0
