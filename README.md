@@ -4,7 +4,7 @@
 
 <h2 align="center">About Repository</h2>
 
-**Objective this repository is to clean dataset so that it can perform further data analysis**
+**The objective of this repository is to provide a comprehensive guide on dataset cleaning using SQL. It primarily focuses on correcting inconsistent data types, fixing inconsistent data values, and removing unnecessary strings to enhance the accuracy and reliability of data analysis. By implementing these cleaning techniques, the repository aims to facilitate further analysis and ensure the reliability of the dataset for meaningful insights.**
 
 
 
