@@ -9,7 +9,9 @@
 
 
 ---
-# **DATA CLEANING**
+<br/>
+<h1 align="center">DATA CLEANING</h1>
+
 * **Fixed values containing inconsistent data types.** <br/>
   	 Update data in the GPA column that has an inconsistent value.<br/>
 
