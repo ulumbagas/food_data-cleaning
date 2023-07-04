@@ -177,3 +177,10 @@ WHERE
  
 ```
 <br/>
+<!--- ![image](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fbb944cd-89b9-45ce-87be-8c42563e93d9)
+ --->
+
+<p align="center" width="90%">
+    <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fbb944cd-89b9-45ce-87be-8c42563e93d9"> 
+</p>
+
