@@ -13,7 +13,7 @@
 <h1 align="center">DATA CLEANING</h1>
 
 * **Fixed values containing inconsistent data types.** <br/>
-  	 Update data in the GPA column that has an inconsistent value.<br/>
+  	 Focuses on correcting inconsistent data types in the GPA column. By resolving these inconsistencies enabling accurate analysis and interpretation of academic performance.<br/>
 
 ```
 UPDATE food 
