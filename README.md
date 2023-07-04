@@ -23,10 +23,12 @@ WHERE
     GPA IN  ('Unknown','Personal');
 ```
 
-In the GPA column there is inconsistent data namely "Personal" and "Unknown". Converting text data to average values will cause 		corrupted data, in this case i change "Personal" and "Unknown" to "nan" due to information that the GPA value cannot be identified or 	does not exist.
+In the GPA column, there are instances of inconsistent data, specifically "Personal" and "Unknown" values. Converting text data into average values can lead to erroneous data, thus in this case, I have replaced "Personal" and "Unknown" with "nan" to indicate that the GPA value cannot be identified or does not exist. This ensures the integrity of the dataset and avoids any misleading calculations or analysis.
+
 <br/>
 <br/>
 <br/>
+
 + **Make  data  consistent.** <br/>
 	If the data you are examining has inconsistent writing variations, such as random usage of uppercase and lowercase letters, correcting the data's writing can help improve data consistency. This will facilitate the data analysis process and minimize errors caused by inconsistent data recognition. <br/>
 
