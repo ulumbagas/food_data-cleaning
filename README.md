@@ -12,8 +12,10 @@
 <br/>
 <h1 align="center">DATA CLEANING</h1>
 
-* **Fixed values containing inconsistent data types.** <br/>
-  	 Focuses on correcting inconsistent data types in the GPA column. By resolving these inconsistencies enabling accurate analysis and interpretation of academic performance.<br/>
+### Fixed values containing inconsistent data types. <br/>
+This code focuses on correcting inconsistent data types in the GPA column. By resolving these inconsistencies enabling accurate analysis and interpretation of academic performance.<br/>
+
+In the GPA column, there are instances of inconsistent data, specifically "Personal" and "Unknown" values. Converting text data into average values can lead to erroneous data, thus in this case, I have replaced "Personal" and "Unknown" with "nan" to indicate that the GPA value cannot be identified or does not exist. This ensures the integrity of the dataset and avoids any misleading calculations or analysis.
 
 ```
 UPDATE food 
@@ -23,24 +25,23 @@ WHERE
     GPA IN  ('Unknown','Personal');
 ```
 
-In the GPA column, there are instances of inconsistent data, specifically "Personal" and "Unknown" values. Converting text data into average values can lead to erroneous data, thus in this case, I have replaced "Personal" and "Unknown" with "nan" to indicate that the GPA value cannot be identified or does not exist. This ensures the integrity of the dataset and avoids any misleading calculations or analysis.
 
 <br/>
 <br/>
-<br/>
 
-+ **fixed inconsistent data values and removing unnecessary strings.** <br/>
-	If the data  has inconsistent writing styles, such as mixed uppercase and lowercase letters and inconsistent data then correcting the formatting can improve data consistency. This simplifies the data analysis process and reduces errors caused by inconsistent data recognition. <br/>
+### fixed inconsistent data values and removing unnecessary strings. <br/>
+
+If the data  has inconsistent writing styles, such as mixed uppercase and lowercase letters and inconsistent data then correcting the formatting can improve data consistency. This simplifies the data analysis process and reduces errors caused by inconsistent data recognition. <br/>
  <br/>
 
-**this code make data in column comfort_food become lowercase**
+This code utilizes the SQL function LOWER to convert the data in the comfort_food column to lowercase. By applying this function, the code ensures that all the values in the comfort_food column are in lowercase format.
 ```
 UPDATE food SET 
 comfort_food = LOWER(comfort_food);
 ```
 <br/>
 
-**The code aims to modify a given text or string by searching for instances where the phrase ", and" appears and replacing it with a single comma ",".**
+The code aims to modify a given text or string by searching for instances where the phrase ", and" appears and replacing it with a single comma ","
 
 ```
 UPDATE food SET 
@@ -56,7 +57,7 @@ iki upload gambar e, copy link e tok ae bos --->
 </p>
 <br/>
 
-**The code aims replacing string ". " with comma and "-" with space " "**
+The objective of the code is to replace the string ". " with a comma (",") and replace hyphens ("-") with a space (" "), simplifying the text and ensuring consistency for easier data analysis.
 
 ```
 UPDATE food SET 
@@ -81,7 +82,7 @@ WHERE comfort_food LIKE '%-%';
 </p>
 <br/>
 
-**The TRIM() function removes the space character OR other specified characters from the start or end of a string.**
+The TRIM() function is used to remove leading or trailing spaces or specified characters from a string. It helps ensure data consistency and improves data quality by eliminating unwanted characters that may interfere with analysis or comparisons.
 
 ```
 UPDATE food 
@@ -90,7 +91,7 @@ SET
 ```
 <br/>
 
-**Delete dot(.) and comma(,) in last string** 
+The objective of this code is to remove the dot (.) and comma (,) characters from the end of a string. This is achieved by utilizing the SQL functions SUBSTRING_INDEX and CONCAT.
 
 ```
 UPDATE food 
@@ -106,7 +107,7 @@ WHERE
 </p>
 <br/>
 
-**In this code, we use some functions like substring_index and case to split the data based on comma as the separator, enabling us to efficiently manage and process the data in the subsequent stages of the data cleansing process.**
+In this code, we use some functions like substring_index and case to split the data based on comma as the separator, enabling us to efficiently manage and process the data in the subsequent stages of the data cleansing process.
 
 ```
 select 
