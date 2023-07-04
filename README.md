@@ -29,17 +29,18 @@ In the GPA column, there are instances of inconsistent data, specifically "Perso
 <br/>
 <br/>
 
-+ **Make  data  consistent.** <br/>
-	If the data you are examining has inconsistent writing variations, such as random usage of uppercase and lowercase letters, correcting the data's writing can help improve data consistency. This will facilitate the data analysis process and minimize errors caused by inconsistent data recognition. <br/>
++ **fixed inconsistent data values and removing unnecessary strings.** <br/>
+	If the data  has inconsistent writing styles, such as mixed uppercase and lowercase letters and inconsistent data then correcting the formatting can improve data consistency. This simplifies the data analysis process and reduces errors caused by inconsistent data recognition. <br/>
+ <br/>
 
-this code make data in column comfort_food become lowercase
+**this code make data in column comfort_food become lowercase**
 ```
 UPDATE food SET 
 comfort_food = LOWER(comfort_food);
 ```
 <br/>
-The code aims to modify a given text or string by searching for instances where the phrase ", and" appears and replacing it with a single comma ","
-<br/>
+
+**The code aims to modify a given text or string by searching for instances where the phrase ", and" appears and replacing it with a single comma ",".**
 
 ```
 UPDATE food SET 
@@ -54,8 +55,8 @@ iki upload gambar e, copy link e tok ae bos --->
     <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fe0ac90f-b122-4444-aebf-7f07481f52d3"> 
 </p>
 <br/>
-The code aims replacing string ". " with comma and "-" with space " "
-<br/>
+
+**The code aims replacing string ". " with comma and "-" with space " "**
 
 ```
 UPDATE food SET 
@@ -79,8 +80,8 @@ WHERE comfort_food LIKE '%-%';
     <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/ac64f04d-7944-45e2-a28c-39bd9bc849cf"> 
 </p>
 <br/>
-The TRIM() function removes the space character OR other specified characters from the start or end of a string.
-<br/>
+
+**The TRIM() function removes the space character OR other specified characters from the start or end of a string.**
 
 ```
 UPDATE food 
@@ -89,7 +90,8 @@ SET
 ```
 <br/>
 
-Delete dot(.) and comma(,) in last string <br/>
+**Delete dot(.) and comma(,) in last string** 
+
 ```
 UPDATE food 
 SET 
@@ -103,7 +105,8 @@ WHERE
     <img width="70%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/15303e02-2499-46f0-95f5-4cd1fc7c78c8"> 
 </p>
 <br/>
-In this code, we use some functions like substring_index and case to split the data based on comma as the separator, enabling us to efficiently manage and process the data in the subsequent stages of the data cleansing process.<br/>
+
+**In this code, we use some functions like substring_index and case to split the data based on comma as the separator, enabling us to efficiently manage and process the data in the subsequent stages of the data cleansing process.**
 
 ```
 select 
@@ -121,7 +124,8 @@ from food;
     <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/8b55a11f-ffd6-4dcf-af83-6b5355163e66"> 
 </p>
 <br/>
-After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese' to 'macaroni & cheese', 'burgers' to 'burger', 'chinese food' to 'chinese' we will fix to make it more consistent. <br/>
+
+**After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese' to 'macaroni & cheese', 'burgers' to 'burger', 'chinese food' to 'chinese' we will fix to make it more consistent.**
 
 ```
 UPDATE food 
