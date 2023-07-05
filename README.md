@@ -140,14 +140,6 @@ WHERE
 UPDATE food 
 SET 
     comfort_food = REPLACE(comfort_food,
-        'mac & cheese',
-        'macaroni & cheese')
-WHERE
-    comfort_food LIKE '%mac & cheese%';
-
-UPDATE food 
-SET 
-    comfort_food = REPLACE(comfort_food,
         'mac in cheese',
         'macaroni & cheese')
 WHERE
@@ -160,14 +152,6 @@ SET
         'macaroni & cheese')
 WHERE
     comfort_food LIKE '%mac n cheese%';
-
-UPDATE food 
-SET 
-    comfort_food = REPLACE(comfort_food,
-        'macaroni and cheese',
-        'macaroni & cheese')
-WHERE
-    comfort_food LIKE '%macaroni and cheese%';
 
 UPDATE food 
 SET 
