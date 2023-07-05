@@ -126,7 +126,7 @@ from food;
 </p>
 <br/>
 
-After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese' to 'macaroni & cheese', 'burgers' to 'burger', 'chinese food' to 'chinese' we will fix to make it more consistent.
+After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese' to 'macaroni & cheese', 'burgers' to 'burger', 'chinese food' to 'chinese' we will fix to make it more consistent. here preview some code
 
 ```
 UPDATE food 
