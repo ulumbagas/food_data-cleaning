@@ -12,7 +12,7 @@
 <br/>
 <h1 align="center">DATA CLEANING</h1>
 
-### Fixed values containing inconsistent data types. <br/>
+### Fixed values containing inconsistent data types in GPA column. <br/>
 This code focuses on correcting inconsistent data types in the GPA column. By resolving these inconsistencies enabling accurate analysis and interpretation of academic performance.<br/>
 
 In the GPA column, there are instances of inconsistent data, specifically "Personal" and "Unknown" values. Converting text data into average values can lead to erroneous data, thus in this case, I have replaced "Personal" and "Unknown" with "nan" to indicate that the GPA value cannot be identified or does not exist. This ensures the integrity of the dataset and avoids any misleading calculations or analysis.
