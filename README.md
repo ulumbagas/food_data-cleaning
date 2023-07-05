@@ -177,4 +177,55 @@ WHERE
 <p align="center" width="90%">
     <img width="90%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fbb944cd-89b9-45ce-87be-8c42563e93d9"> 
 </p>
+<br/>
+After observing, there are several data in the comfort_food column that are separated using something other than commas, but using spaces or newline (\n).
+
+```
+SELECT 
+    LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ' ', '')) AS 'spasi',
+    comfort_food
+FROM
+    food
+    where comfort_food not like '%,%';
+```
+<br/>
+<!--- ![image](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/3b280a0d-f0cf-41f1-b881-80b38c12b647) --->
+<p align="center" width="75%">
+    <img width="75%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/3b280a0d-f0cf-41f1-b881-80b38c12b647"> 
+</p>
+
+This code will fix the issue <br/>
+
+```
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'pizza chocolate chips bagels ice capps',
+        'pizza,chocolate,chips,bagels,ice capps')
+WHERE
+    comfort_food = 'pizza chocolate chips bagels ice capps';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'pizza cookies steak',
+        'pizza,cookies,steak')
+WHERE
+    comfort_food = 'pizza cookies steak';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'chips sweets popcorn',
+        'chips,sweets popcorn')
+WHERE
+    comfort_food = 'chips sweets popcorn';
+```
+<!--- ![image](https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fb600b08-6b4e-49e3-a80b-972fdecd6b0f) --->
+<p align="center" width="75%">
+    <img width="75%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fb600b08-6b4e-49e3-a80b-972fdecd6b0f"> 
+</p>
+
+
+
 
