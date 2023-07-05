@@ -181,9 +181,59 @@ WHERE
     comfort_food LIKE '%chocolates%';
 
 
+
+
 SELECT 
     LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ' ', '')) AS 'spasi',
-    comfort_food
+    comfort_food_1
 FROM
     food
-    where comfort_food NOT like '%,%' and LENGTH(comfort_food) - LENGTH(REPLACE(comfort_food, ' ', '')) <> 0
+    where comfort_food_1 not like '%,%' and comfort_food_1 not like '%none%' and comfort_food_1 not like '%nan%';
+
+SELECT 
+    comfort_food_1  'before', comfort_food 'fater'
+FROM
+    food
+    where comfort_food_1 not like '%,%' and comfort_food_1 not like '%none%' and comfort_food_1 not like '%nan%';
+    
+select replace(comfort_food,'pizza chocolate chips bagels ice capps','pizza,chocolate,chips,bagels,ice capps') as oke, comfort_food from food;
+    
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'candy
+        pop
+        chocolate 
+        chipotle 
+        moe\'s',
+        'candy,pop,chocolate,chipotle,moe\'s')
+WHERE
+    comfort_food = 'candy
+    pop
+    chocolate 
+    chipotle 
+    moe\'s';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'pizza chocolate chips bagels ice capps',
+        'pizza,chocolate,chips,bagels,ice capps')
+WHERE
+    comfort_food = 'pizza chocolate chips bagels ice capps';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'pizza cookies steak',
+        'pizza,cookies,steak')
+WHERE
+    comfort_food = 'pizza cookies steak';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'chips sweets popcorn',
+        'chips,sweets popcorn')
+WHERE
+    comfort_food = 'chips sweets popcorn';
