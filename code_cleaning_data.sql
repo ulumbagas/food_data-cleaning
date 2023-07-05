@@ -180,7 +180,29 @@ SET
 WHERE
     comfort_food LIKE '%chocolates%';
 
-
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'pretzals',
+        'pretzels')
+WHERE
+    comfort_food LIKE '%pretzals%';
+    
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'icecream',
+        'ice cream')
+WHERE
+    comfort_food LIKE '%icecream%';
+    
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'fires',
+        'fries')
+WHERE
+    comfort_food LIKE '%fires%';
 
 
 SELECT 
