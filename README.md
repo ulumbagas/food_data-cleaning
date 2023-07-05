@@ -225,7 +225,19 @@ WHERE
 <p align="center" width="75%">
     <img width="75%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fb600b08-6b4e-49e3-a80b-972fdecd6b0f"> 
 </p>
+<br/>
 
+### Fixed values containing inconsistent data types in cook column
+In the column 'cook', there is inconsistent data, specifically "special occasions". Therefore, I will replace it with 'nan'.
+```
+UPDATE food 
+SET 
+    cook = REPLACE(cook,
+        ' special occasions',
+        'nan')
+WHERE
+    cook = ' special occasions';
+```
 
 
 
