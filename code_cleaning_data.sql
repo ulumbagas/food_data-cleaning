@@ -259,3 +259,133 @@ SET
         'chips,sweets popcorn')
 WHERE
     comfort_food = 'chips sweets popcorn';
+    
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'nan',
+        'none')
+WHERE
+    comfort_food = 'nan';
+
+UPDATE food 
+SET 
+    comfort_food = REPLACE(comfort_food,
+        'pizza, doughnuts, mcdonalds','pizza, donuts, mcdonalds')
+WHERE
+    comfort_food = 'pizza, doughnuts, mcdonalds';
+    
+#column cook
+UPDATE food 
+SET 
+    cook = REPLACE(cook,
+        ' special occasions',
+        'nan')
+WHERE
+    cook = ' special occasions';
+
+select comfort_food from food;
+#where comfort_food = 'none'
+
+#column comfort_food_reasons
+UPDATE food 
+SET 
+    comfort_food_reasons = trim(comfort_food_reasons);
+
+UPDATE food 
+SET 
+    comfort_food_reasons = lower(comfort_food_reasons);
+
+#fixed inconsistent
+
+UPDATE food 
+SET 
+    comfort_food_reasons = REPLACE(comfort_food_reasons,', and', ',')
+WHERE
+    comfort_food_reasons like '%, and%';
+
+UPDATE food 
+SET 
+    comfort_food_reasons = REPLACE(comfort_food_reasons,' and ', ',')
+WHERE
+    comfort_food_reasons like '% and %';   
+
+UPDATE food 
+SET 
+    comfort_food_reasons = REPLACE(comfort_food_reasons,'/', ',')
+WHERE
+    comfort_food_reasons like '%/%';  
+
+UPDATE food 
+SET 
+    comfort_food_reasons = REPLACE(comfort_food_reasons,'. ', ',')
+WHERE
+    comfort_food_reasons like '%.%';
+
+#hapus last string dot
+UPDATE food 
+SET 
+    comfort_food_reasons = CONCAT(SUBSTRING(comfort_food_reasons,1,LENGTH(comfort_food_reasons) - 1),'')
+WHERE
+    RIGHT(comfort_food_reasons, 1) IN ('.',' ');
+
+
+#split
+update food set
+comfort_food_reasons = replace(comfort_food_reasons,'boredom comfort hunger','boredom,comfort,hunger')
+where comfort_food_reasons like '%boredom comfort hunger%';
+
+update food
+set
+CFS1= SUBSTRING_INDEX(comfort_food_reasons,',',1),
+CFS2= CASE WHEN LENGTH(comfort_food_reasons) - LENGTH(REPLACE(comfort_food_reasons, ',', '')) >= 1 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food_reasons, ',', 2), ',', -1)) ELSE null END,
+CFS3= CASE WHEN LENGTH(comfort_food_reasons) - LENGTH(REPLACE(comfort_food_reasons, ',', '')) >= 2 THEN TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(comfort_food_reasons, ',', 3), ',', -1)) ELSE null END;
+
+select comfort_food_reasons from food;
+
+select CFS1,CFS2,CFS3 from food;
+
+select CFS1, SUBSTRING_INDEX(comfort_food_reasons,',',1) 'before' from food;
+
+select distinct(CFS1) from food;
+
+update food set
+CFS1 = 'stress'
+where CFS1 like '%stres%';
+
+update food set
+CFS1 = 'boredom'
+where CFS1 like '%bored%';
+
+update food set
+CFS1 = 'boredom'
+where CFS1 like '%bord%';
+
+update food set
+CFS2 = null
+where CFS2 like '%depre%';
+
+update food set
+CFS1 = 'depression or sadness'
+where CFS1 like '%sad%';
+
+update food set
+CFS1 = 'hunger'
+where CFS1 like '%hungry%';
+
+update food set
+CFS1 = 'laziness'
+where CFS1 like '%laz%';
+
+update food set
+CFS1 = 'happiness'
+where CFS1 like '%happiness%';
+
+update food set
+CFS2 = 'watching tv'
+where CFS2 like '%watching tv%';
+
+update food set
+CFS1 = 'none'
+where CFS1 like 'we dont have comfort' or CFS1 like 'nan' or CFS1 like 'no reasons' or CFS1 like 'just cause';
+
