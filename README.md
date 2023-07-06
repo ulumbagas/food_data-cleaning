@@ -12,7 +12,7 @@
 <br/>
 <h1 align="center">DATA CLEANING</h1>
 
-### Fixed values containing inconsistent data types. <br/>
+### Fixed values containing inconsistent data types in GPA column. <br/>
 This code focuses on correcting inconsistent data types in the GPA column. By resolving these inconsistencies enabling accurate analysis and interpretation of academic performance.<br/>
 
 In the GPA column, there are instances of inconsistent data, specifically "Personal" and "Unknown" values. Converting text data into average values can lead to erroneous data, thus in this case, I have replaced "Personal" and "Unknown" with "nan" to indicate that the GPA value cannot be identified or does not exist. This ensures the integrity of the dataset and avoids any misleading calculations or analysis.
@@ -126,7 +126,7 @@ from food;
 </p>
 <br/>
 
-After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese' to 'macaroni & cheese', 'burgers' to 'burger', 'chinese food' to 'chinese' we will fix to make it more consistent.
+After identifying the data in the comfort_food column, I found some inconsistencies that needed to be fixed such as 'mac and cheese' to 'macaroni & cheese', 'burgers' to 'burger', 'chinese food' to 'chinese' we will fix to make it more consistent. here preview some code
 
 ```
 UPDATE food 
@@ -225,7 +225,19 @@ WHERE
 <p align="center" width="75%">
     <img width="75%" src="https://github.com/ulumbagas/food_data-cleaning/assets/58242856/fb600b08-6b4e-49e3-a80b-972fdecd6b0f"> 
 </p>
+<br/>
 
+### Fixed values containing inconsistent data types in cook column
+In the column 'cook', there is inconsistent data, specifically "special occasions". Therefore, I will replace it with 'nan'.
+```
+UPDATE food 
+SET 
+    cook = REPLACE(cook,
+        ' special occasions',
+        'nan')
+WHERE
+    cook = ' special occasions';
+```
 
 
 
