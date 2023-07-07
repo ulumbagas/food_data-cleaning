@@ -343,7 +343,7 @@ CFS3= CASE WHEN LENGTH(comfort_food_reasons) - LENGTH(REPLACE(comfort_food_reaso
 
 select comfort_food_reasons from food;
 
-select CFS1,CFS2,CFS3 from food;
+select CFS1,CFS2,CFS3,comfort_food_reasons_coded from food;
 
 select CFS1, SUBSTRING_INDEX(comfort_food_reasons,',',1) 'before' from food;
 
@@ -389,3 +389,8 @@ update food set
 CFS1 = 'none'
 where CFS1 like 'we dont have comfort' or CFS1 like 'nan' or CFS1 like 'no reasons' or CFS1 like 'just cause';
 
+#CFS2
+
+update food set
+CFS1 = 'stress'
+where CFS1 like '%stres%';
