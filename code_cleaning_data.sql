@@ -345,6 +345,8 @@ select comfort_food_reasons from food;
 
 select CFS1,CFS2,CFS3,comfort_food_reasons_coded from food;
 
+select CFS1,CFS2,CFS3,comfort_food_reasons from food;
+
 select CFS1, SUBSTRING_INDEX(comfort_food_reasons,',',1) 'before' from food;
 
 select distinct(CFS1) from food;
@@ -463,3 +465,4 @@ update food set
 CFS3 = 'watching tv'
 where CFS3 like '%watching tv%';
 
+select distinct(diet_current) from food
