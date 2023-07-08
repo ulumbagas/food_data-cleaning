@@ -404,9 +404,6 @@ update food set
 CFS2 = 'boredom'
 where CFS2 like '%bord%';
 
-update food set
-CFS2 = null
-where CFS2 like '%depre%';
 
 update food set
 CFS2 = 'depression or sadness'
@@ -427,3 +424,42 @@ where CFS2 like '%happiness%';
 update food set
 CFS2 = 'watching tv'
 where CFS2 like '%watching tv%';
+
+#csf3
+
+update food set
+CFS3 = 'stress'
+where CFS3 like '%stres%';
+
+update food set
+CFS3 = 'boredom'
+where CFS3 like '%bored%';
+
+update food set
+CFS3 = 'boredom'
+where CFS3 like '%bord%';
+
+update food set
+CFS3 = null
+where CFS3 like '%depre%';
+
+update food set
+CFS3 = 'depression or sadness'
+where CFS3 like '%sad%';
+
+update food set
+CFS3 = 'hunger'
+where CFS3 like '%hungry%';
+
+update food set
+CFS3 = 'laziness'
+where CFS3 like '%laz%';
+
+update food set
+CFS3 = 'happiness'
+where CFS3 like '%happiness%';
+
+update food set
+CFS3 = 'watching tv'
+where CFS3 like '%watching tv%';
+
