@@ -391,6 +391,39 @@ where CFS1 like 'we dont have comfort' or CFS1 like 'nan' or CFS1 like 'no reaso
 
 #CFS2
 
+
 update food set
-CFS1 = 'stress'
-where CFS1 like '%stres%';
+CFS2 = 'stress'
+where CFS2 like '%stres%';
+
+update food set
+CFS2 = 'boredom'
+where CFS2 like '%bored%';
+
+update food set
+CFS2 = 'boredom'
+where CFS2 like '%bord%';
+
+update food set
+CFS2 = null
+where CFS2 like '%depre%';
+
+update food set
+CFS2 = 'depression or sadness'
+where CFS2 like '%sad%';
+
+update food set
+CFS2 = 'hunger'
+where CFS2 like '%hungry%';
+
+update food set
+CFS2 = 'laziness'
+where CFS2 like '%laz%';
+
+update food set
+CFS2 = 'happiness'
+where CFS2 like '%happiness%';
+
+update food set
+CFS2 = 'watching tv'
+where CFS2 like '%watching tv%';
