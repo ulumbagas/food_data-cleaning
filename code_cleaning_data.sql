@@ -465,4 +465,22 @@ update food set
 CFS3 = 'watching tv'
 where CFS3 like '%watching tv%';
 
-select distinct(diet_current) from food
+select comfort_food_reasons_coded from food;
+
+select CFS1,comfort_food_reasons_coded from food;
+
+UPDATE food 
+SET 
+    comfort_food_reasons_coded = CASE
+        WHEN CFS1 = 'stress' THEN 1
+        WHEN CFS1 = 'boredom' THEN 2
+        WHEN CFS1 = 'depression or sadness' THEN 3
+        WHEN CFS1 = 'hunger' THEN 4
+        WHEN CFS1 = 'laziness' THEN 5
+        WHEN CFS1 = 'cold weather' THEN 6
+        WHEN CFS1 = 'happiness' THEN 7
+        WHEN CFS1 = 'watching tv' THEN 8
+        WHEN CFS1 = 'none' THEN 9
+        else 'nan'
+    END;
+
