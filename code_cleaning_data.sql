@@ -484,3 +484,18 @@ SET
         else 'nan'
     END;
 
+#update code iki sek mari ngunu where unhealthy tok gawe keterangan 'other' lan unhealthy
+select diet_current from food
+where diet_current like '%healthy%' and diet_current not like '%unhealthy%';
+
+select diet_current from food
+where diet_current like '%balance%' and diet_current not like '%unbalan%';
+
+select diet_current from food
+where diet_current like '%modera%';
+
+select diet_current from food
+where diet_current like '%cheap%';
+
+select diet_current from food
+where diet_current like '%lot%';
