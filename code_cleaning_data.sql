@@ -485,8 +485,17 @@ SET
     END;
 
 #update code iki sek mari ngunu where unhealthy tok gawe keterangan 'other' lan unhealthy
+
+update food set 
+diet_current = diet_current_1;
+
+select diet_current, diet_current_1 from food;
+
 select diet_current from food
-where diet_current like '%healthy%' and diet_current not like '%unhealthy%';
+where diet_current like '%healthy%' and diet_current not like '%unhealthy%' and diet_current not like '%not%'; #not healthy, eat good, vegetable, not
+
+select diet_current from food
+where diet_current like '%not healt%';
 
 select diet_current from food
 where diet_current like '%balance%' and diet_current not like '%unbalan%';
@@ -499,3 +508,15 @@ where diet_current like '%cheap%';
 
 select diet_current from food
 where diet_current like '%lot%';
+
+select diet_current from food
+where diet_current like '%unhealthy%';
+
+
+#update diet_current;
+update food set
+diet_current = 'healthy/balanced/moderated'
+where  diet_current like '%healthier%' or diet_current like '%healthy%' and diet_current not like '%unhealthy%' and diet_current not like '%not%';
+
+select diet_current from food
+where diet_current like '%not%' and diet_current like '%healt%';
