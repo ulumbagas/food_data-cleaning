@@ -489,7 +489,12 @@ SET
 update food set 
 diet_current = diet_current_1;
 
-select diet_current, diet_current_1 from food;
+select diet_current, diet_current_1 from food
+where diet_current like '%cheap%';
+
+select count(diet_current) from food
+where diet_current like '%not%';
+
 
 select diet_current from food
 where diet_current like '%healthy%' and diet_current not like '%unhealthy%' and diet_current not like '%not%'; #not healthy, eat good, vegetable, not
@@ -518,5 +523,47 @@ update food set
 diet_current = 'healthy/balanced/moderated'
 where  diet_current like '%healthier%' or diet_current like '%healthy%' and diet_current not like '%unhealthy%' and diet_current not like '%not%';
 
-select diet_current from food
-where diet_current like '%not%' and diet_current like '%healt%';
+update food set
+diet_current = 'healthy/balanced/moderated'
+ where diet_current not like '%unbalan%' and  diet_current like '%balance%' or diet_current like '%moderat%';
+
+update food set
+diet_current = 'healthy/balanced/moderated' 
+ where diet_current not like '%balance%' and diet_current like '%healt%' and diet_current not like '%not%' and diet_current not like '%unheal%';
+
+update food set
+diet_current = 'healthy/balanced/moderated' 
+where diet_current like '%healthy diet%';
+
+update food set
+diet_current = 'unhealthy/cheap/too much/random/' 
+where diet_current not like '%balanc%' and diet_current like '%unhealth%' or diet_current like '%random%';
+
+update food set
+diet_current = 'unclear'
+where diet_current like '%healthy food%';
+
+update food set
+diet_current = 'healthy/balanced/moderated' 
+where diet_current like '%somewhat healthy%';
+
+update food set
+diet_current = 'unhealthy/cheap/too much/random/' 
+where diet_current not like '%random%' and diet_current not like '%balanc%' and diet_current like '%heal%';
+
+update food set
+diet_current = 'unhealthy/cheap/too much/random/' 
+where diet_current like '%unbala%';
+
+update food set
+diet_current = 'healthy/balanced/moderated'
+where diet_current like '%vege%' or diet_current like '%prote%';
+
+update food set
+diet_current = 'unhealthy/cheap/too much/random/' 
+where diet_current like '%not%';
+
+#College diet, cheap and easy foods most nights. Weekends traditionally, cook better homemade meals 
+update food set
+diet_current = 'unclear' 
+where diet_current not like '%unhealth%' and diet_current like '%cheap%';
