@@ -532,7 +532,7 @@ diet_current = 'healthy/balanced/moderated'
 where diet_current like '%healthy diet%';
 
 update food set
-diet_current = 'unhealthy/cheap/too much/random/' 
+diet_current = 'unhealthy/cheap/too much/random' 
 where diet_current not like '%balanc%' and diet_current like '%unhealth%' or diet_current like '%random%';
 
 update food set
@@ -544,11 +544,11 @@ diet_current = 'healthy/balanced/moderated'
 where diet_current like '%somewhat healthy%';
 
 update food set
-diet_current = 'unhealthy/cheap/too much/random/' 
+diet_current = 'unhealthy/cheap/too much/random' 
 where diet_current not like '%random%' and diet_current not like '%balanc%' and diet_current like '%heal%';
 
 update food set
-diet_current = 'unhealthy/cheap/too much/random/' 
+diet_current = 'unhealthy/cheap/too much/random' 
 where diet_current like '%unbala%';
 
 update food set
@@ -556,7 +556,7 @@ diet_current = 'healthy/balanced/moderated'
 where diet_current like '%vege%' or diet_current like '%prote%';
 
 update food set
-diet_current = 'unhealthy/cheap/too much/random/' 
+diet_current = 'unhealthy/cheap/too much/random' 
 where diet_current like '%not%';
 
 #College diet, cheap and easy foods most nights. Weekends traditionally, cook better homemade meals 
@@ -574,7 +574,7 @@ where diet_current like '%fruit%' or diet_current like '%good%' or diet_current 
 
 #'My current diet would be considered a \"college diet\"\". I eat a lot of pizza and ramen noodles. \"'
 update food set
-diet_current = 'unhealthy/cheap/too much/random/' 
+diet_current = 'unhealthy/cheap/too much/random' 
 where diet_current like '%pizza%' or diet_current like '%carb%' or diet_current like '%don\'t%';
 
 update food set
@@ -588,3 +588,26 @@ where diet_current like '%sandwich%' or diet_current like '%rice%' or diet_curre
 update food set
 diet_current = 'unclear' 
 where diet_current not like '%healt%' and diet_current not like '%unclear%';
+
+#diet_current_coded
+update food set diet_current_coded =
+case 
+when diet_current = 'healthy/balanced/moderated' then 1
+when diet_current = 'unhealthy/cheap/too much/random/' then 2
+else '3' end;
+
+#update drink
+update food set
+drink = 'nan'
+where drink like '%my diet%';
+
+update food set
+eating_changes = trim(eating_changes),
+eating_changes = lower(eating_changes);
+
+select eating_changes_coded1 from food;
+
+update food set
+eating_changes_coded1 = 10
+where eating_changes_coded1 = 0;
+
