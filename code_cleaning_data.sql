@@ -489,8 +489,7 @@ SET
 update food set 
 diet_current = diet_current_1;
 
-select diet_current, diet_current_1 from food
-where diet_current like '%cheap%';
+select diet_current, diet_current_1 from food;
 
 select count(diet_current) from food
 where diet_current like '%not%';
@@ -513,9 +512,6 @@ where diet_current like '%cheap%';
 
 select diet_current from food
 where diet_current like '%lot%';
-
-select diet_current from food
-where diet_current like '%unhealthy%';
 
 
 #update diet_current;
@@ -567,3 +563,28 @@ where diet_current like '%not%';
 update food set
 diet_current = 'unclear' 
 where diet_current not like '%unhealth%' and diet_current like '%cheap%';
+
+update food set
+diet_current = 'unclear' 
+where diet_current like '%no diet%';
+
+update food set
+diet_current = 'healthy/balanced/moderated' 
+where diet_current like '%fruit%' or diet_current like '%good%' or diet_current like '%salad%' ;
+
+#'My current diet would be considered a \"college diet\"\". I eat a lot of pizza and ramen noodles. \"'
+update food set
+diet_current = 'unhealthy/cheap/too much/random/' 
+where diet_current like '%pizza%' or diet_current like '%carb%' or diet_current like '%don\'t%';
+
+update food set
+diet_current = 'unclear' 
+where diet_current like '%lunch and dinner%' or diet_current like '%what%' or diet_current like '%food%';
+
+update food set
+diet_current = 'healthy/balanced/moderated' 
+where diet_current like '%sandwich%' or diet_current like '%rice%' or diet_current like '%egan%' or diet_current like '%eat very heat%';
+
+update food set
+diet_current = 'unclear' 
+where diet_current not like '%healt%' and diet_current not like '%unclear%';
