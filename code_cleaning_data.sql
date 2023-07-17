@@ -622,4 +622,11 @@ select distinct(exercise) from food;
 
 select distinct(father_education) from food;
 
-select distinct(father_profession) from food;
+#father_profession
+update food set
+father_profession = trim(father_profession);
+
+update food set
+father_profession = lower(father_profession);
+
+select distinct(father_profession) from food; #manager sales busines
