@@ -1,6 +1,3 @@
-select comfort_food from food;
-
-
 #update text data to "nan"
 UPDATE food 
 SET 
@@ -611,3 +608,18 @@ update food set
 eating_changes_coded1 = 10
 where eating_changes_coded1 = 0;
 
+select distinct(eating_out) from food;
+
+select distinct(employment) from food;
+
+update food set
+employment = 4
+where employment = 'nan' or employment = 5;
+
+select distinct(ethnic_food) from food;
+
+select distinct(exercise) from food;
+
+select distinct(father_education) from food;
+
+select distinct(father_profession) from food;
