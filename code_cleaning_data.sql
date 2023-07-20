@@ -629,4 +629,38 @@ father_profession = trim(father_profession);
 update food set
 father_profession = lower(father_profession);
 
-select distinct(father_profession) from food; #manager sales busines
+/*update food set
+father_profession_1 = father_profession;
+*/
+select distinct(father_profession) from food; #manager sales busines(owner) retired driver police (idk nan unknown not sure 2)
+
+update food set
+father_profession = 'manager'
+where father_profession like '%manager%';
+
+update food set
+father_profession = 'sales'
+where father_profession like '%sale%';
+
+update food set
+father_profession = 'businessman'
+where father_profession like '%busines%';
+
+update food set
+father_profession = 'businessman'
+where father_profession like '%self employed%';
+
+update food set
+father_profession = 'retired'
+where father_profession like '%retire%';
+
+update food set
+father_profession = 'police'
+where father_profession like '%police%';
+
+update food set
+father_profession = 'Unknown'
+where father_profession in ('idk', 'nan', 'unknown', 'not', 'sure', '2');
+
+
+select father_profession,father_profession_1 from food;
