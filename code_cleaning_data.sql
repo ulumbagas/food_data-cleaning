@@ -864,3 +864,19 @@ select distinct(fruit_day) from food;
 
 update food set fruit_day = 'nan'
 where fruit_day =0;
+
+#ada data yang terbalik antara income dan ideal diet
+select distinct(income) from food;
+
+select replace(ideal_diet,2,income),income from food;
+
+update food set 
+income = 2
+where income like '%my ideal%';
+
+/*ideal diet terakhir saja karena banyak haha
+select distinct(ideal_diet) from food*/
+
+update food set 
+ideal_diet = replace(ideal_diet,2,income)
+where income like '%my ideal%';
