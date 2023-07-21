@@ -797,5 +797,67 @@ update food set
 fav_food = 2
 where fav_food = 'Mexican';
 
-select food_childhood from food
+#update food_childhood
+/*update food set food_childhood_copy1 = food_childhood;*/
+update food set 
+food_childhood = trim(food_childhood);
 
+update food set 
+food_childhood = lower(food_childhood);
+
+update food set 
+food_childhood = replace(food_childhood,'/',',')
+where food_childhood like '%/%';
+
+update food set 
+food_childhood = replace(food_childhood,', and',',')
+where food_childhood like '%, and%';
+
+update food set 
+food_childhood = replace(food_childhood,'mac cheese','mac & cheese')
+where food_childhood = 'mac cheese';
+
+update food set 
+food_childhood = replace(food_childhood,'mac&cheese','mac & cheese')
+where food_childhood like '%mac&cheese%';
+
+update food set 
+food_childhood = replace(food_childhood,'pizza mac n cheese pasta','pizza, mac & cheese, pasta')
+where food_childhood like '%pizza mac n cheese pasta%';
+
+update food set 
+food_childhood = replace(food_childhood,'macaroni and cheese','mac & cheese')
+where food_childhood like '%macaroni and cheese%';
+
+update food set 
+food_childhood = replace(food_childhood,'macaroni & cheese','mac & cheese')
+where food_childhood like '%macaroni & cheese%';
+
+update food set 
+food_childhood = replace(food_childhood,'stromboli, mac and cheese, pizza','stromboli, mac & cheese, pizza')
+where food_childhood like '%stromboli, mac and cheese, pizza%';
+
+update food set 
+food_childhood = replace(food_childhood,', &',',')
+where food_childhood not like '%mac &%';
+
+update food set 
+food_childhood = replace(food_childhood,'&',',')
+where food_childhood not like '%mac &%';
+
+update food set 
+food_childhood = replace(food_childhood,'mac and cheesae','mac & cheese')
+where food_childhood like '%mac and cheease%';
+
+update food set 
+food_childhood = replace(food_childhood,'pizza pasta and quesadillas','pizza, pasta, quesadillas')
+where food_childhood like '%pizza pasta and quesadillas%';
+
+update food set 
+food_childhood = replace(food_childhood,' and',',')
+where food_childhood like '%and%';
+
+select food_childhood,food_childhood_copy1 from food;
+
+select replace(food_childhood,'&',',') as oke, food_childhood from food
+where food_childhood not like '%mac &%'; 
