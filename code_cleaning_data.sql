@@ -784,3 +784,18 @@ when SUBSTRING_INDEX(fav_cuisine,',',1) = 'african' then 6
 when SUBSTRING_INDEX(fav_cuisine,',',1) = 'jamaican' then 7
 when SUBSTRING_INDEX(fav_cuisine,',',1) = 'indian' then 8
 else 0 end;
+
+select distinct(fav_food) from food;
+
+/*data tertukar fav cuisine dan fav food yaitu mexican dan 2*/
+
+update food set 
+fav_cuisine = 'mexican'
+where fav_food = 'Mexican';
+
+update food set 
+fav_food = 2
+where fav_food = 'Mexican';
+
+select food_childhood from food
+
