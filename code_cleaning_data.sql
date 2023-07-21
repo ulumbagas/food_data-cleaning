@@ -770,9 +770,17 @@ SET
     fav_cuisine = 'vietnamese'
 WHERE fav_cuisine = 'vietnamese cuisine';
 
-select fav_cuisine,fav_cuisine_copy1 from food
+select SUBSTRING_INDEX(fav_cuisine,',',1) as fav_cuisine,fav_cuisine_coded from food
 order by fav_cuisine;
 
-
-select distinct(fav_cuisine) from food
-order by fav_cuisine;
+update food set fav_cuisine_coded=
+case 
+when SUBSTRING_INDEX(fav_cuisine,',',1) in ('italian','french','greek') then 1
+when SUBSTRING_INDEX(fav_cuisine,',',1) in ('spanish','mexican') then 2
+when SUBSTRING_INDEX(fav_cuisine,',',1) in ('Arabic','Turkish','lebanese') then 3
+when SUBSTRING_INDEX(fav_cuisine,',',1) in ('asian','chinese','thai','nepal','japanese','korean','vietnamese') then 4
+when SUBSTRING_INDEX(fav_cuisine,',',1) in ('american','hispanic','colombian') then 5
+when SUBSTRING_INDEX(fav_cuisine,',',1) = 'african' then 6
+when SUBSTRING_INDEX(fav_cuisine,',',1) = 'jamaican' then 7
+when SUBSTRING_INDEX(fav_cuisine,',',1) = 'indian' then 8
+else 0 end;
