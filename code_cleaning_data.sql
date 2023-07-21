@@ -632,7 +632,7 @@ father_profession = lower(father_profession);
 /*update food set
 father_profession_1 = father_profession;
 */
-select distinct(father_profession) from food; #manager sales busines(owner) retired driver police (idk nan unknown not sure 2)
+select distinct(father_profession) from food;
 
 update food set
 father_profession = 'manager'
@@ -664,3 +664,115 @@ where father_profession in ('idk', 'nan', 'unknown', 'not', 'sure', '2');
 
 
 select father_profession,father_profession_1 from food;
+
+update food set
+fav_cuisine = trim(fav_cuisine);
+
+update food set
+fav_cuisine = lower(fav_cuisine);
+
+update food set
+fav_cuisine_copy1=fav_cuisine;
+
+UPDATE food 
+SET 
+    fav_cuisine = 'unclear'
+WHERE
+    fav_cuisine IN ('2' , 'all',
+        'barbecue',
+        'chicken',
+        'don\'t have one',
+        'i do not like cuisine',
+        'mac and cheese',
+        'lean',
+        'nan',
+        'orange chicken and chow mani noodles',
+        'seafood',
+        'sub sandwhiches','wraps');
+        
+UPDATE food 
+SET 
+    fav_cuisine = replace(fav_cuisine,' or ',',')
+WHERE fav_cuisine like '% or %';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'colombian'
+    where fav_cuisine like '%colombian%';
+    
+UPDATE food 
+SET 
+    fav_cuisine = 'american'
+WHERE fav_cuisine like '% american%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'arabic'
+WHERE fav_cuisine like '%arabic%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'chinese,vietnamese'
+WHERE fav_cuisine like '%authentic chinese and vietnamese food%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'italian,thai'
+WHERE fav_cuisine = 'i really love italian food and thai food';
+
+UPDATE food 
+SET 
+    fav_cuisine = replace(fav_cuisine,' and ',',')
+WHERE fav_cuisine like '% and %';
+
+UPDATE food 
+SET 
+    fav_cuisine = replace(fav_cuisine,'/',',')
+WHERE fav_cuisine like '%/%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'chinese'
+WHERE fav_cuisine like '%chinese cuisine%' or fav_cuisine like '%chinese food%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'american'
+WHERE fav_cuisine like '%hispanic%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'indian'
+WHERE fav_cuisine like '%indian food%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'italian'
+WHERE fav_cuisine like '%italian food%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'mexican'
+WHERE fav_cuisine like '%mexican%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'thai'
+WHERE fav_cuisine like '%thai food%';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'japanese'
+WHERE fav_cuisine = 'sushi';
+
+UPDATE food 
+SET 
+    fav_cuisine = 'vietnamese'
+WHERE fav_cuisine = 'vietnamese cuisine';
+
+select fav_cuisine,fav_cuisine_copy1 from food
+order by fav_cuisine;
+
+
+select distinct(fav_cuisine) from food
+order by fav_cuisine;
