@@ -857,7 +857,10 @@ update food set
 food_childhood = replace(food_childhood,' and',',')
 where food_childhood like '%and%';
 
-select food_childhood,food_childhood_copy1 from food;
-
 select replace(food_childhood,'&',',') as oke, food_childhood from food
 where food_childhood not like '%mac &%'; 
+
+select distinct(fruit_day) from food;
+
+update food set fruit_day = 'nan'
+where fruit_day =0;
